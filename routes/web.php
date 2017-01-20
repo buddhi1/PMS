@@ -20,3 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::resource('admin/medicine', 'MedicineController');
+
+Route::resource('patient', 'MedicineController');
