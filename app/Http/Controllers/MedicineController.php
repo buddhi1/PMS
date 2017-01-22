@@ -19,7 +19,9 @@ class MedicineController extends Controller
      */
     public function index()
     {
-        //
+        //load all available medicines
+        return view('medicine.index')                
+            ->with('medicines', Medicine::paginate(5));
     }
 
     /**
@@ -29,6 +31,7 @@ class MedicineController extends Controller
      */
     public function create()
     {
+        //get add medicine view
         return view('medicine.create');
     }
 
@@ -56,10 +59,12 @@ class MedicineController extends Controller
 
             $medicine->save();
 
-            return 1;
+            return redirect('admin/medicine')
+                    ->with('message', 'New medicine added successfully');
         }
 
-        return 0;
+        return redirect('admin/medicine/create')
+                    ->with('message', 'Something went wrong');
     }
 
     /**
@@ -81,7 +86,16 @@ class MedicineController extends Controller
      */
     public function edit($id)
     {
-        //
+        //load edit medicine form
+        $medicine = Medicine::find($id);
+
+        if ($medicine) {
+            return view('medicine.edit')
+                    ->with('medicine', $medicine);
+        }
+
+        return redirect('medicine/admin')
+                ->with('message', 'Something went wrong');
     }
 
     /**
@@ -104,6 +118,18 @@ class MedicineController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //delete medicine
+        $medicine = Medicine::find($id);
+
+        if ($medicine) {
+            $medicine->delete();
+
+            return redirect('admin/medicine')
+                    ->with('message', 'Medicine Removed Successfull');
+        }
+
+        return redirect('admin/medicine')
+                ->with('message', 'Something went wrong');
+       var_dump("sadsadasd".$id) ;
     }
 }

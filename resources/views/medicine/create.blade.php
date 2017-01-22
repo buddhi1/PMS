@@ -2,6 +2,9 @@
 
 @section('content')
 <h3>Add a New Medicine</h3>
+@if(Session::has('message'))
+    <div class="alert alert-danger"> {{ Session::get('message') }} </div>
+@endif
     <form method="POST" action="{{ url('admin/medicine') }}" >
     {{ csrf_field() }}
         <div>
@@ -21,3 +24,4 @@
                 <button type="submit">Save</button>
             </div>
     </form>
+@stop
