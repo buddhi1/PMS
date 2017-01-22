@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Medicine extends Model
+class Doctor extends Model
 {
     protected $guarded = array();
 	public static $rules = array(
-			'name'=> 'required'
+			'reg_no'=> 'required'
 		);
 }

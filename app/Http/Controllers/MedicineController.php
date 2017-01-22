@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 
+use Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use App\Medicine;
@@ -45,26 +46,35 @@ class MedicineController extends Controller
     {
         //add new medicine to DB
 
-        $medicine = new Medicine();
-        //checking whether a medicine already exists
+        $validator = Validator::make($request->all(), Medicine::$rules);
+        
+        if($validator->passes()){
 
-        $brand_name = DB::table('medicines')->where('brand_name', Input::get('brand_name'))->first();
+            $medicine = new Medicine();
+            //checking whether a medicine already exists
 
-        if(!$brand_name) {
-            $medicine->name = Input::get('name');
-            $medicine->brand_name = Input::get('brand_name');
-            $medicine->approval = 0;
-            $medicine->prescribed = 1;
-            $medicine->description = Input::get('description');
+            $brand_name = DB::table('medicines')->where('brand_name', Input::get('brand_name'))->first();
 
-            $medicine->save();
+            if(!$brand_name) {
+                $medicine->name = Input::get('name');
+                $medicine->brand_name = Input::get('brand_name');
+                $medicine->approval = 0;
+                $medicine->prescribed = 1;
+                $medicine->description = Input::get('description');
 
-            return redirect('admin/medicine')
-                    ->with('message', 'New medicine added successfully');
+                $medicine->save();
+
+                return redirect('admin/medicine')
+                        ->with('message', 'New medicine added successfully');
+            }
+
+            return redirect('admin/medicine/create')
+                        ->with('message', 'Brand name already exists in the database');
         }
 
         return redirect('admin/medicine/create')
-                    ->with('message', 'Something went wrong');
+                ->with('message', 'Following erros occured')
+                ->withErrors($validator);
     }
 
     /**
@@ -107,7 +117,28 @@ class MedicineController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //save edited changes ot the medicine
+       
+        $validator =  Validator::make($request->all(), Medicine::$rules);
+        if($validator->passes()){
+            $medicine = Medicine::find($id);
+            if($medicine){
+
+                $medicine->name = Input::get('name'); 
+                $medicine->prescribed = $request->prescribed;                        
+                $medicine->approval = $request->approval;                
+                $medicine->description = Input::get('description');
+
+                $medicine->save();
+
+                return redirect('admin/medicine')
+                        ->with('message', 'Medicine updated successfully');
+            }
+
+            return redirect('admin/medicine')
+                    ->with('message', 'Following errors occured')
+                    ->withErrors($validator);
+        }
     }
 
     /**

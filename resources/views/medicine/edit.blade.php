@@ -14,39 +14,46 @@
     </ul>
 </div>
 @endif
-    <form method="PUT" action="{{ url('admin/medicine') }}/{{ $medicine->id }}" >
+    <!-- <form method="PATCH" action="{{ url('admin/medicine') }}/{{ $medicine->id }}" > -->
+    {{ Form::open(['method' => 'PUT', 'url' => ['admin/medicine', $medicine->id]]) }}                   
+                
     {{ csrf_field() }}
         <div>
             <div>
-                <label>Medicine Name</label>
+                <label>Medicine Name :</label>
                 <input type="text" required="required"  name="name" value="{{ $medicine->name }}"/>
             </div>
             <div>
-                <label>Brand Name</label>
-                <input type="text" required="required" name="brand_name" value="{{ $medicine->brand_name }}"/>
+                <label>Brand Name :</label>
+                <input disabled="disabled" type="text" required="required" name="brand_name" value="{{ $medicine->brand_name }}"/>
             </div>
             <div>
-                <label>Admin Approval</label>
+                <label>Admin Approval :</label><br/>
                 @if($medicine->approval == 1)
-                    <label>Approved</label><input type="radio" name="" value="Approved"/>
+                    <label>Approved</label><input type="radio" name="approval" checked="checked" value="1" /><br/>
+                    <label>Pending</label><input type="radio" name="approval" value="0" />
                 @else
-                    <label>Pending</label><input type="radio" name="" value=""/>
+                     <label>Approved</label><input type="radio" name="approval" value="1" /><br/>
+                    <label>Pending</label><input type="radio" name="approval" checked="checked" value="0" />
                 @endif
             </div>
             <div>
-                <label>Prescribed Status</label>
+                <label>Prescribed Status :</label><br/>
                 @if($medicine->prescription == 1)
-                    <label>Required</label><input type="radio" name="" value="Approved"/>
+                    <label>Required</label><input type="radio" name="prescribed" value="Approved" checked="checked" value="1"/><br/>
+                    <label>Not Required</label><input type="radio" name="prescribed" value="0"/>
                 @else
-                    <label>Not Required</label><input type="radio" name="" value=""/>
+                    <label>Required</label><input type="radio" name="prescribed" value="1" checked="checked" /><br/>
+                    <label>Not Required</label><input type="radio" name="prescribed" value="0"/>                    
                 @endif
             </div>
             <div>
-                <label>Description</label>
+                <label>Description :</label>
                 <textarea name="description">{{ $medicine->description }}</textarea>
             </div>
             <div>
                 <button type="submit">Save</button>
             </div>
-    </form>
+    <!-- </form> -->
+    {{ Form::close() }}  
 @stop

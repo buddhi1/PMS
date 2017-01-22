@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h3>Add a New Medicine</h3>
+<h3>Add a New Doctor</h3>
 @if(Session::has('message'))
     <div class="alert alert-danger"> {{ Session::get('message') }} </div>
 @endif
@@ -14,15 +14,15 @@
     </ul>
 </div>
 @endif
-    <form method="POST" action="{{ url('admin/medicine') }}" >
+    <form method="POST" action="{{ url('admin/doctor') }}" >
     {{ csrf_field() }}
         <div>
             <div>
-                <label>Medicine Name</label>
+                <label>Doctor Name</label>
                 <input type="text" required="required"  name="name" />
             </div>
             <div>
-                <label>Brand Name</label>
+                <label>Registration Number</label>
                 <input type="text" required="required" name="brand_name"/>
             </div>
             <div>
