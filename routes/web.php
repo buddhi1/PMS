@@ -22,3 +22,6 @@ Route::get('/home', 'HomeController@index');
 Route::resource('admin/medicine', 'MedicineController');
 
 Route::resource('admin/doctor', 'DoctorController');
+
+Route::resource('admin/pharmacy', 'PharmacyController');
+
