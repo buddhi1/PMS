@@ -1,8 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
+
 <h3>Add a New Pharmacy</h3>
-    
+@if(Session::has('message'))
+    <div class="alert alert-danger"> {{ Session::get('message') }} </div>
+@endif
+@if(count($errors) > 0)
+    <div class="alert alert-danger">
+    <ul>
+        @foreach($errors->all() as $error)          
+                <li> {{ $error }} </li>         
+        @endforeach
+    </ul>
+</div>
+@endif
         <div class="container">
     <h2>Add Pharmacy</h2>
 
