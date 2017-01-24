@@ -104,7 +104,7 @@ class MedicineController extends Controller
                     ->with('medicine', $medicine);
         }
 
-        return redirect('medicine/admin')
+        return redirect('admin/medicine')
                 ->with('message', 'Something went wrong');
     }
 
@@ -136,9 +136,12 @@ class MedicineController extends Controller
             }
 
             return redirect('admin/medicine')
+                    ->with('message', 'Medicine cannot be found. Please try again');
+        }
+
+        return redirect('admin/medicine')
                     ->with('message', 'Following errors occured')
                     ->withErrors($validator);
-        }
     }
 
     /**

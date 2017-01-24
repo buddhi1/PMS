@@ -14,7 +14,6 @@
     </ul>
 </div>
 @endif
-    <!-- <form method="PATCH" action="{{ url('admin/medicine') }}/{{ $medicine->id }}" > -->
     {{ Form::open(['method' => 'PUT', 'url' => ['admin/medicine', $medicine->id]]) }}                   
                 
     {{ csrf_field() }}

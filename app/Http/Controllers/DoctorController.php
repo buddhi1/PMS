@@ -19,7 +19,8 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        //
+        return view('doctor.index')
+                ->with('doctors', Doctor::paginate(5));
     }
 
     /**
@@ -40,7 +41,36 @@ class DoctorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), Doctor::$rules);
+
+        if($validator->passes()){
+
+            $doctor = new Doctor;
+
+            $doctor_name = Doctor::where('reg_no', $request->reg_no)->first();
+
+            if(!$doctor_name){
+                $doctor->name = $request->name;                
+                $doctor->reg_no = $request->reg_no;                
+                $doctor->address = $request->address;                
+                $doctor->city = $request->city;                
+                $doctor->location = $request->location;  
+                $doctor->status = 0;   
+
+                $doctor->save();
+
+                return redirect('admin/doctor/create')
+                        ->with('message', 'New doctor added successfully');              
+            }
+
+            return redirect('admin/doctor/create')
+                    ->with('message', 'Doctor has been already registered in the system');
+
+        }
+
+        return redirect('admin/doctor/create')
+                ->with('message', 'Following Errors')
+                ->withErrors($validator);
     }
 
     /**
@@ -62,7 +92,16 @@ class DoctorController extends Controller
      */
     public function edit($id)
     {
-        //
+        //load edit doctor form
+        $doctor = Doctor::find($id);
+
+        if ($doctor) {
+            return view('doctor.edit')
+                    ->with('doctor', $doctor);
+        }
+
+        return redirect('admin/doctor')
+                ->with('message', 'Something went wrong');
     }
 
     /**
@@ -74,7 +113,33 @@ class DoctorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), Doctor::$rules);
+
+        if($validator->passes()){
+
+            $doctor = Doctor::find($id);
+
+            if($doctor){
+                $doctor->name = $request->name;                    
+                $doctor->address = $request->address;                
+                $doctor->city = $request->city;                
+                $doctor->location = $request->location;  
+                $doctor->status = $request->status;   
+
+                $doctor->save();
+
+                return redirect('admin/doctor')
+                        ->with('message', 'Doctor updated successfully');              
+            }
+
+            return redirect('admin/doctor')
+                    ->with('message', 'Doctor cannot be found. Please try again');
+
+        }
+
+        return redirect('admin/doctor')
+                ->with('message', 'Following Errors')
+                ->withErrors($validator);
     }
 
     /**
@@ -85,6 +150,16 @@ class DoctorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $doctor = Doctor::find($id);
+
+        if ($doctor) {
+            $doctor->delete();
+
+            return redirect('admin/doctor')
+                    ->with('message', 'Doctor account deleted successfully');
+        }
+
+        return redirect('admin/doctor')
+                ->with('message', 'Something went wrong. Please try again');
     }
 }
