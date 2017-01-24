@@ -23,11 +23,19 @@
             </div>
             <div>
                 <label>Registration Number</label>
-                <input type="text" required="required" name="brand_name"/>
+                <input type="text" required="required" name="reg_no"/>
             </div>
             <div>
-                <label>Description</label>
-                <textarea name="description"></textarea>
+                <label>Address</label>
+                <input type="text" required="required" name="address"/>
+            </div>
+            <div>
+                <label>City</label>
+                <input type="text" required="required" name="city"/>
+            </div>            
+            <div>
+                <label>Location</label>
+                <input type="text" required="required" name="location"/>
             </div>
             <div>
                 <button type="submit">Save</button>

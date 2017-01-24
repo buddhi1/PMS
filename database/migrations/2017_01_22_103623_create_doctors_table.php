@@ -16,15 +16,16 @@ class CreateDoctorsTable extends Migration
         //create doctors table
 
         Schema::create('doctors', function(Blueprint $table){
-            $table->increment('id');
-            $table->integer('user_id');     //foreign key of the related user account
+            $table->increments('id');
+            //$table->integer('user_id');     //foreign key of the related user account
             $table->string('name');
             $table->string('reg_no');
             $table->string('address');
             $table->string('city');
             $table->string('location');
+            $table->boolean('status');
             $table->timestamps();
-        })
+        });
     }
 
     /**
