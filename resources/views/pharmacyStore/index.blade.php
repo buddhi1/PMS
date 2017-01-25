@@ -3,7 +3,7 @@
 @section('content')
 
 
-<h2 class="container">View Pharmacy Details</h2>
+<h2 class="container">View Pharmacy Store Details</h2>
 @if(Session::has('message'))
     <div class="alert alert-danger"> {{ Session::get('message') }} </div>
 @endif
@@ -16,7 +16,6 @@
     </ul>
 </div>
 @endif
-
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
@@ -34,57 +33,28 @@
     			<thead>
     				<tr>
     					
-    					<th>Register No</th>
-    					<th>Pharmacy Name</th>
-    					<th>Pharmacy Address</th>
-    					<th>City</th>
-    					<!--th>Location</th-->
     					
-    					<th>Minimum Quantity</th>
-    					<th>Availability</th>
-    					<th>Open Time</th>
-    					<th>Close Time</th>
-    					<th>Status</th>
+    					<th>Medicine Id</th>
+    					<th>Quantity</th>
+    					
     					<th>Edit</th>
     					<th>Delete</th>
     				</tr>
     			</thead>
 
     			<tbody>
-    				@foreach($pharmacies as $pharmacy)
+    				@foreach($pharmacyStores as $pharmacyStore)
     				<tr>
                         
-    					<td><label>{{ $pharmacy->register_number}}</label></td>
-    					<td><label>{{ $pharmacy->name}}</label></td>
-    					<td><label>{{ $pharmacy->address}}</label></td>
-    					<td><label>{{ $pharmacy->city}}</label></td>
-    					<!--td><label>{{ $pharmacy->location}}</label></td-->
-    					<td><label>{{ $pharmacy->minimum_qty}}</label></td>
-                      	<td><label>
-                      		@if($pharmacy->availability==1)
-                      			Available
-                      		@else
-                      			Not available
-                      		@endif
-                      	</label></td>
-                      	
-
-    				  	<td><label>{{ $pharmacy->opening_time}}</label></td> 
-    					   					
-                    	<td><label>{{ $pharmacy->closing_time}}</label></td>
-                    	<td><label>
-                    		@if($pharmacy->status==1)
-                    			Active
-                    		@else
-                    			Inactive
-                    		@endif
-                    	</label></td>
-                    	  					
-    					<td>{{ Form::open(['method' => 'GET', 'url' => ['admin/pharmacy', $pharmacy->id, 'edit']]) }}
+    					
+    					<td><label>{{ $pharmacyStore->name}}</label></td>
+    					<td><label>{{ $pharmacyStore->qty}}</label></td>
+    					
+    					<td>{{ Form::open(['method' => 'GET', 'url' => ['pharmacy/store', $pharmacyStore->id, 'edit']]) }}
                    			 {{ Form::submit('Edit', ['class' => 'btn btn-warning']) }}
               				 {{ Form::close() }}  </td>
 
-                        <td>{{ Form::open(['method' => 'DELETE', 'url' => ['admin/pharmacy', $pharmacy->id]]) }}
+                        <td>{{ Form::open(['method' => 'DELETE', 'url' => ['pharmacy/store', $pharmacyStore->id]]) }}
                    			{{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
                 			{{ Form::close() }}  </td>
                     </tr>
@@ -93,7 +63,4 @@
 	               </tbody>
 
     		</table>
-    		<div> {{$pharmacies->links()}} </div>
-
-
-<!--end: View Pharmacy-->
+    		<div> {{$pharmacyStores->links()}} </div>

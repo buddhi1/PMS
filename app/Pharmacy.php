@@ -16,7 +16,7 @@ class Pharmacy extends Model
 			
 			'minimum_qty' => 'required',
 			'opening_time' => 'required',
-			'closing_time' => 'required',
+			'closing_time' => 'required'
 			
 		);
     public static $erules = array(
@@ -28,7 +28,7 @@ class Pharmacy extends Model
 			
 			'minimum_qty' => 'required',
 			'opening_time' => 'required',
-			'closing_time' => 'required',
+			'closing_time' => 'required'
 			
 		);
 }

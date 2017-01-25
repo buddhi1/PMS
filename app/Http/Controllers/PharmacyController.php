@@ -161,6 +161,6 @@ class PharmacyController extends Controller
 
         return redirect('admin/pharmacy')
                 ->with('message', 'Something went wrong');
-       var_dump("sadsadasd".$id) ;
+       //var_dump("sadsadasd".$id) ;
     }
 }
