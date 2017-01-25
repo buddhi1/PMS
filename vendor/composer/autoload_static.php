@@ -284,10 +284,12 @@ class ComposerStaticInita86c5d06b09dae23773ff1d5c5ce1402
     );
 
     public static $classMap = array (
+        'AlterPatientsTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_24_035003_alter_patients_table.php',
         'CreateDoctorsTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_22_103623_create_doctors_table.php',
         'CreateMedicinesTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_19_112704_create_medicines_table.php',
         'CreateOrdersTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_25_033405_create_orders_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+        'CreatePatientsTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_24_022050_create_patients_table.php',
         'CreatePharmaciesTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_20_050843_create_pharmacies_table.php',
         'CreatePharmacyStoresTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_24_050458_create_pharmacy_stores_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
