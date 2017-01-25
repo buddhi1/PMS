@@ -10,10 +10,15 @@ return array(
     'AlterPrescriptionTable' => $baseDir . '/database/migrations/2017_01_24_165717_alter_prescription_table.php',
     'CreateDoctorsTable' => $baseDir . '/database/migrations/2017_01_22_103623_create_doctors_table.php',
     'CreateMedicinesTable' => $baseDir . '/database/migrations/2017_01_19_112704_create_medicines_table.php',
+    'CreateOrdersTable' => $baseDir . '/database/migrations/2017_01_25_033405_create_orders_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePatientsTable' => $baseDir . '/database/migrations/2017_01_24_022050_create_patients_table.php',
     'CreatePharmaciesTable' => $baseDir . '/database/migrations/2017_01_20_050843_create_pharmacies_table.php',
+<<<<<<< HEAD
     'CreatePrescriptionsTable' => $baseDir . '/database/migrations/2017_01_24_154713_create_prescriptions_table.php',
+=======
+    'CreatePharmacyStoresTable' => $baseDir . '/database/migrations/2017_01_24_050458_create_pharmacy_stores_table.php',
+>>>>>>> 1d65743b6a5155551b27d5087edd9d1fd784d569
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',

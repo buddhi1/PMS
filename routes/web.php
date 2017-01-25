@@ -28,3 +28,7 @@ Route::resource('admin/pharmacy', 'PharmacyController');
 Route::resource('admin/patient', 'PatientController');
 
 Route::resource('doctor/prescription', 'PrescriptionController');
+
+Route::resource('pharmacy/store', 'PharmacystoreController');
+
+Route::resource('admin/order', 'OrderController');

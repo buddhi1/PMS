@@ -35,10 +35,37 @@
             </div>            
             <div>
                 <label>Location</label>
-                <input type="text" required="required" name="location"/>
+                <div id="map" style="height: 400px;width: 70%;"></div>
             </div>
             <div>
                 <button type="submit">Save</button>
             </div>
     </form>
+    <script type="text/javascript">
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: {lat: 10, lng: 79 }
+      });
+
+      map.addListener('click', function(e) {
+        placeMarkerAndPanTo(e.latLng, map);
+      });
+    }
+
+    function placeMarkerAndPanTo(latLng, map) {
+
+      var marker = new google.maps.Marker({
+        position: latLng,
+        map: map
+      });
+      document.getElementById('location').value = (marker.getPosition().lat()).toFixed(2)+ ',' +(marker.getPosition().lng()).toFixed(2);
+      console.log(marker.getPosition().lat());
+      console.log(marker.getPosition().lng());
+      map.panTo(latLng);
+    }
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCPoClfm0bn8XgSRK4a3CCMbD631C-eqY&callback=initMap">
+</script> 
 @stop
