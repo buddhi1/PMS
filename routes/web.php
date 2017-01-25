@@ -26,3 +26,5 @@ Route::resource('admin/doctor', 'DoctorController');
 Route::resource('admin/pharmacy', 'PharmacyController');
 
 Route::resource('admin/patient', 'PatientController');
+
+Route::resource('doctor/prescription', 'PrescriptionController');

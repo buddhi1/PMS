@@ -285,11 +285,13 @@ class ComposerStaticInita86c5d06b09dae23773ff1d5c5ce1402
 
     public static $classMap = array (
         'AlterPatientsTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_24_035003_alter_patients_table.php',
+        'AlterPrescriptionTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_24_165717_alter_prescription_table.php',
         'CreateDoctorsTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_22_103623_create_doctors_table.php',
         'CreateMedicinesTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_19_112704_create_medicines_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreatePatientsTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_24_022050_create_patients_table.php',
         'CreatePharmaciesTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_20_050843_create_pharmacies_table.php',
+        'CreatePrescriptionsTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_24_154713_create_prescriptions_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
