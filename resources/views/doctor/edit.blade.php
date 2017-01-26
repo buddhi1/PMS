@@ -36,6 +36,7 @@
             <div class="form-group">
                 <label>Location</label>
                 <div id="map" style="height: 400px;width: 70%;"></div>
+                <input type="hidden" name="location" id="location">
             </div>
             <div class="form-group">
                 <label>Account Status</label><br>

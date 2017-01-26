@@ -11,24 +11,13 @@ class Pharmacy extends Model
     		'register_number' => 'required',
 			'name'=> 'required',
 			'address' => 'required',
-			'city' => 'required',
-			'location' => 'required',
-			
-			'minimum_qty' => 'required',
-			'opening_time' => 'required',
-			'closing_time' => 'required'
+			'city' => 'required'
 			
 		);
     public static $erules = array(
     		
 			'name'=> 'required',
 			'address' => 'required',
-			'city' => 'required',
-			'location' => 'required',
-			
-			'minimum_qty' => 'required',
-			'opening_time' => 'required',
-			'closing_time' => 'required'
-			
+			'city' => 'required'			
 		);
 }

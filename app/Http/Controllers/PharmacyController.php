@@ -46,7 +46,6 @@ class PharmacyController extends Controller
         $validator = Validator::make($request->all(), Pharmacy::$rules);
         if($validator->passes()){
             $pharmacy = new Pharmacy();
-
             $register_number = DB::table('pharmacies')->where('register_number', Input::get('register_number'))->first();
             if (!$register_number) {
                 $pharmacy->register_number = Input::get('register_number');
@@ -55,19 +54,20 @@ class PharmacyController extends Controller
                 $pharmacy->city = Input::get('city');
                 $pharmacy->location = Input::get('location');
                 $pharmacy->availability = 1;
-                $pharmacy->minimum_qty = Input::get('minimum_qty');
-                $pharmacy->opening_time = Input::get('opening_time');
-                $pharmacy->closing_time = Input::get('closing_time');
+                $pharmacy->minimum_qty = (int)Input::get('minimum_qty');
+                $pharmacy->opening_time = strtotime(Input::get('opening_time'));
+                $pharmacy->closing_time = strtotime(Input::get('closing_time'));
                 $pharmacy->status = 0;
 
                 $pharmacy->save();
+
                 return redirect('admin/pharmacy')
                     ->with('message','New pharmacy added successfully');
             }
             return redirect('admin/pharmacy/create')
                 ->with('message','Pharmacy is already added');
         }
-        return redirect('admin/pharmacy/create')
+        return redirect('admin/pharmacy')
             ->with('message','Following errors occured')
             ->withErros($validator);
     }

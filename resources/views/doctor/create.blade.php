@@ -36,6 +36,7 @@
             <div>
                 <label>Location</label>
                 <div id="map" style="height: 400px;width: 70%;"></div>
+                <input type="hidden" name="location" id="location">
             </div>
             <br>
              <div class="form-group">

@@ -114,7 +114,7 @@
                     <div class="panel cus-panel">
                       <div class="panel-heading">
                         <h4 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse5"><img src="icon/customer.png"  style="margin-right: 10px">Prescription</a>
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse5"><img src="icon/prescription.png"  style="margin-right: 10px">Prescription</a>
                         </h4>
                       </div>
                       <div id="collapse5" class="panel-collapse collapse">
