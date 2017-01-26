@@ -39,8 +39,10 @@ class PrescriptionController extends Controller
     public function create()
     {
         $patients = DB::table('patients')->select('id', 'nic')->where('status', '=', 1)->get();
+        $medicines = DB::table('medicines')->select('id', 'name', 'brand_name')->where('approval', '=', 1)->get();
         return view('prescription.create')
-                ->with('patients', $patients);
+                ->with('patients', $patients)
+                ->with('medicines', $medicines);
     }
 
     /**
