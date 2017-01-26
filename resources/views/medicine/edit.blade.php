@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h3>Add a New Medicine</h3>
+<h3>Update Medicine</h3>
 @if(Session::has('message'))
     <div class="alert alert-danger"> {{ Session::get('message') }} </div>
 @endif
@@ -18,37 +18,38 @@
                 
     {{ csrf_field() }}
         <div>
-            <div>
+            <div class="form-group ">
                 <label>Medicine Name :</label>
-                <input type="text" required="required"  name="name" value="{{ $medicine->name }}"/>
+                <input type="text" required="required"  class="form-control" name="name" value="{{ $medicine->name }}"/>
             </div>
-            <div>
+            <div class="form-group ">
                 <label>Brand Name :</label>
-                <input disabled="disabled" type="text" required="required" name="brand_name" value="{{ $medicine->brand_name }}"/>
+                <input disabled="disabled" type="text" class="form-control" required="required" name="brand_name" value="{{ $medicine->brand_name }}"/>
             </div>
-            <div>
+            <div class="form-group ">
                 <label>Admin Approval :</label><br/>
                 @if($medicine->approval == 1)
-                    <label>Approved</label><input type="radio" name="approval" checked="checked" value="1" /><br/>
-                    <label>Pending</label><input type="radio" name="approval" value="0" />
+                    <input type="radio" name="approval" checked="checked" value="1" /><label>  Approved</label><br> 
+                        
+                    <input type="radio" name="approval" value="0" /><label>  Pending</label>
                 @else
-                     <label>Approved</label><input type="radio" name="approval" value="1" /><br/>
-                    <label>Pending</label><input type="radio" name="approval" checked="checked" value="0" />
+                     <input type="radio" name="approval" value="1" /><label>Approved</label><br> 
+                    <input type="radio" name="approval" checked="checked" value="0" /><label>Pending</label>
                 @endif
             </div>
-            <div>
+            <div class="form-group ">
                 <label>Prescribed Status :</label><br/>
                 @if($medicine->prescription == 1)
-                    <label>Required</label><input type="radio" name="prescribed" value="Approved" checked="checked" value="1"/><br/>
-                    <label>Not Required</label><input type="radio" name="prescribed" value="0"/>
+                    <input type="radio" name="prescribed" value="Approved" checked="checked" value="1"/><label>Required</label><br/>
+                    <input type="radio" name="prescribed" value="0"/><label>Not Required</label>
                 @else
-                    <label>Required</label><input type="radio" name="prescribed" value="1" checked="checked" /><br/>
-                    <label>Not Required</label><input type="radio" name="prescribed" value="0"/>                    
+                    <input type="radio" name="prescribed" value="1" checked="checked" /><label>Required</label><br/>
+                    <input type="radio" name="prescribed" value="0"/><label>Not Required</label>                    
                 @endif
             </div>
-            <div>
+            <div class="form-group ">
                 <label>Description :</label>
-                <textarea name="description">{{ $medicine->description }}</textarea>
+                <textarea name="description" class="form-control">{{ $medicine->description }}</textarea>
             </div>
             <div>
                 <button type="submit">Save</button>

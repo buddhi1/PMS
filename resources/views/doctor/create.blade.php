@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h3>Add a New Doctor</h3>
+<h3>Add Doctor</h3>
 @if(Session::has('message'))
     <div class="alert alert-danger"> {{ Session::get('message') }} </div>
 @endif
@@ -17,29 +17,30 @@
     <form method="POST" action="{{ url('admin/doctor') }}" >
     {{ csrf_field() }}
         <div>
-            <div>
-                <label>Doctor Name</label>
-                <input type="text" required="required"  name="name" />
+            <div class="form-group">
+                <label><span style="color: red">* </span> Doctor Name</label>
+                <input type="text" class="form-control" required="required"  name="name" />
             </div>
-            <div>
-                <label>Registration Number</label>
-                <input type="text" required="required" name="reg_no"/>
+            <div class="form-group">
+                <label><span style="color: red">* </span>Registration Number</label>
+                <input type="text" class="form-control" required="required" name="reg_no"/>
             </div>
-            <div>
-                <label>Address</label>
-                <input type="text" required="required" name="address"/>
+            <div class="form-group">
+                <label><span style="color: red">* </span>Address</label>
+                <input type="text" class="form-control" required="required" name="address"/>
             </div>
-            <div>
-                <label>City</label>
-                <input type="text" required="required" name="city"/>
+            <div class="form-group">
+                <label><span style="color: red">* </span>City</label>
+                <input type="text" class="form-control" required="required" name="city"/>
             </div>            
             <div>
                 <label>Location</label>
                 <div id="map" style="height: 400px;width: 70%;"></div>
             </div>
-            <div>
-                <button type="submit">Save</button>
-            </div>
+            <br>
+            <div class="form-group">
+                <button class="btn btn-default" type="submit">Save</button>
+            </div><br><br><br>
     </form>
     <script type="text/javascript">
     function initMap() {

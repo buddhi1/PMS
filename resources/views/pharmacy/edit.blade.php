@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h3>Edit Pharmacy details</h3>
+<h3>Update Pharmacy</h3>
 @if(Session::has('message'))
     <div class="alert alert-danger"> {{ Session::get('message') }} </div>
 @endif

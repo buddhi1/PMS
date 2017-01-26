@@ -18,9 +18,8 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   
 
         <link rel="stylesheet" type="text/css" href="{{ url(('/')) }}/css/others.css">  
-        <link rel="stylesheet" type="text/css" href="{{ url(('/')) }}/css/gen.css">     
-
-        
+        <link rel="stylesheet" type="text/css" href="{{ url(('/')) }}/css/gen.css">  
+      
     </head>
     <body>
     <div id="wrapper">
