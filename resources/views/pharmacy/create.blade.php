@@ -44,11 +44,18 @@
         </div>
         <div class="form-group">
             <div><label>Opening Time: </label></div>
-            <div>
-            <input type="text" class="form-control timepicker" name="opening_time" id="ph_Open" required></div>
+            <div class="example-container">
+                <div>
+                    <input type="time" class="form-control" value="" id="basic_example_2" name="open_time" />
+                </div>
+            </div>
 
             <div><label>Closing Time: </label></div>
-            <div><input type="text" class="form-control" name="closing_time" id="ph_Close" required></div>
+            <div class="example-container">
+                <div>
+                    <input type="time" class="form-control" value="" id="basic_example_3" name="close_time" />
+                </div>
+            </div>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
         <button type="reset" class="btn btn-default">Reset</button>
@@ -79,6 +86,7 @@
       map.panTo(latLng);
     }
 </script>
+
 <script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCPoClfm0bn8XgSRK4a3CCMbD631C-eqY&callback=initMap">
-</script>    
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCPoClfm0bn8XgSRK4a3CCMbD631C-eqY&callback=initMap">
+</script> 
