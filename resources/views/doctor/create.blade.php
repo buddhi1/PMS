@@ -22,7 +22,7 @@
                 <input type="text" class="form-control" required="required"  name="name" />
             </div>
             <div class="form-group">
-                <label><span style="color: red">* </span>Registration Number</label>
+                <label><span style="color: red">* </span>Register Number (Legal ID)</label>
                 <input type="text" class="form-control" required="required" name="reg_no"/>
             </div>
             <div class="form-group">
@@ -38,6 +38,10 @@
                 <div id="map" style="height: 400px;width: 70%;"></div>
             </div>
             <br>
+             <div class="form-group">
+                <label><span style="color: red">* </span>Specialization</label>
+                <input type="text" class="form-control" required="required" name="spec"/>
+            </div>
             <div class="form-group">
                 <button class="btn btn-default" type="submit">Save</button>
             </div><br><br><br>

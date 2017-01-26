@@ -22,7 +22,7 @@
                 <input type="text" class="form-control" required="required"  name="name" value=" {{ $doctor->name }} " />
             </div>
             <div class="form-group">
-                <label>Registration Number</label>
+                <label>Register Number (Legal ID))</label>
                 <input type="text" class="form-control" disabled="disabled" required="required" name="reg_no" value=" {{ $doctor->reg_no }} "/>
             </div>
             <div class="form-group">

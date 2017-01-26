@@ -34,7 +34,7 @@
     			<thead>
     				<tr>
     					
-    					<th>Register No</th>
+    					<th>Register No (Legal ID)</th>
     					<th>Pharmacy Name</th>
     					<th>Pharmacy Address</th>
     					<th>City</th>

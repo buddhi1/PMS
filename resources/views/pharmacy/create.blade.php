@@ -21,7 +21,7 @@
     <form method="POST" action="{{ url('admin/pharmacy') }}" >
     {{ csrf_field() }}
         <div class="form-group">
-            <div><label><span style="color: red">* </span> Register Number : </label></div>
+            <div><label><span style="color: red">* </span> Register Number(Legal ID) : </label></div>
             <div><input type="text" class="form-control" name="register_number" placeholder="Enter Pharmacy Registered Number" required></div>
         </div>
         <div class="form-group">

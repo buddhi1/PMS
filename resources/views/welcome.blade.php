@@ -36,7 +36,7 @@
                     <a id="menu-toggle" href="#" class="glyphicon glyphicon-align-justify btn-menu toggle">
                         <i class="fa fa-bars"></i>
                     </a>
-            <a href="#">Prescription Mangement System</a>
+            <a href="#">Look Up Pharmacy</a>
                 </div>
       </div>
       <div id="navbar" class="collapse navbar-collapse">

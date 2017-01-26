@@ -21,7 +21,7 @@
     <div class="container">
     
         <div class="form-group">
-            <div><label> Register Number : </label></div>
+            <div><label> Register Number(Legal ID) : </label></div>
             <div><input type="text" class="form-control" name="register_number" value="{{ $pharmacy->register_number}}" required="required" disabled="disabled"></div>
         </div>
         <div class="form-group">

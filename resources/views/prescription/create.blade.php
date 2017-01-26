@@ -179,7 +179,7 @@
 
 <!-- end: view, edit, delete medicine in table -->
         <div id="printdiv" class="form-group">
-            <label>Comments</label>
+            <label>Disease</label>
             <textarea name="comments" class="form-control"></textarea>
         </div>
         
@@ -198,7 +198,7 @@
 <!--begin: js for print prescription -->
 <script type="text/javascript">
     function myFunction() {
-        div('printdiv').print();
+        window.print();
     }
 
     // medication class definition

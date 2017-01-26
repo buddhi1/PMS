@@ -11,7 +11,7 @@
             <th>Id</th>
             <th>patient Details</th>
             <th>Medication</th>
-            <th>Comments</th>
+            <th>Disease</th>
             <th>Date</th>
         </tr>
         @foreach($prescriptions as $prescription)
