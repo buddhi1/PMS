@@ -59,7 +59,7 @@
             <ul class="sidebar-nav nav">
                 <li class="sidebar-brand">
                     <!-- <a href="#" target="iframe_ex" style="padding-left: 15px;"><img src="icon/home.png" class="img_medi" style="margin-right:6px;    margin-bottom: 12px;">Home</a> -->
-                    <a href="#"  style="padding-left: 15px;"><img src="icon/home.png" class="img_medi" style="margin-right:6px;    margin-bottom: 12px;">Home</a>
+                    <a href="{{url('/')}}/dash_home" target="iframe_ex" style="padding-left: 15px;"><img src="icon/home.png" class="img_medi" style="margin-right:6px;    margin-bottom: 12px;">Home</a>
                 </li>
                 <li>
                     <div class="panel-group" id="accordion">
@@ -133,7 +133,7 @@
 
     <div id="page-content-wrapper">
         <div id="div1" class="page-content">
-         <iframe name="iframe_ex" class="set_iframe"></iframe>           
+         <iframe src="{{url('/')}}/dash_home" name="iframe_ex" class="set_iframe"></iframe>           
         </div>
     </div>
 </div>
