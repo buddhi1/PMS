@@ -39,14 +39,14 @@
     </form> -->
 
     <!-- begin:add medicine into database -->
-    <div class="container">
+    <div class="container col-xs-8">
         <h2>Prescription</h2>
 
         <form method="POST" action="{{ url('doctor/prescription') }}" >
         {{ csrf_field() }}
-            <div class="form-group">
-                <div><div class="req_field">*</div><label> Patient Name : </label></div>
-                <div>
+            <div class="form-group row">
+                <div class="col-sm-4"><span style="color: red">*</span><label> Patient Name : </label></div>
+                <div class="col-sm-5">
                     <select class="form-control" id="medi_name" name="patient_id">
                         <option selected>--Select Patient--</option>
                         @foreach($patients as $patient)
@@ -55,10 +55,10 @@
                     </select>  
                 </div>
             </div>
-            <div class="form-group ">
-                <div><div class="req_field">*</div><label> Medicine Name : </label></div>
-                <div>
-                    <select class="form-control" id="medicine_name" name="medicine_id">
+            <div class="form-group row">
+                <div class="col-sm-4"><span style="color: red">*</span><label> Medicine Name : </label></div>
+                <div class="col-sm-5">
+                    <select class="form-control" id="medicine_name" name="medicine_name">
                         <option selected>--Select Medicine--</option>
                         @foreach($medicines as $medicine)
                             <option value=" {{ $medicine->id }} "> {{ $medicine->name }}[ {{ $medicine->brand_name }} ] </option>
@@ -67,19 +67,19 @@
                 </div>
             </div>
 
-            <div class="form-group ">
-                <div><div class="req_field">*</div><label> Dose (mg) : </label></div>
-                <div><input type="text" class="form-control" name="medi_dose" id="medi_dose" placeholder="Enter dose" required></div>
+            <div class="form-group row">
+                <div class="col-sm-4"><span style="color: red">*</span><label> Dose (mg) : </label></div>
+                <div class="col-sm-5"><input type="text" class="form-control" name="medi_dose" id="medi_dose" placeholder="Enter dose" required></div>
             </div>
 
-            <div class="form-group ">
-                <div><div class="req_field">*</div><label> Amount of tablets : </label></div>
-                <div><input type="number" class="form-control" name="medi_tablet" id="medi_tablet" min="1" required></div>
+            <div class="form-group row">
+                <div class="col-sm-4"><span style="color: red">*</span><label> Amount of tablets : </label></div>
+                <div class="col-sm-5"><input type="number" class="form-control" name="medi_tablet" id="medi_tablet" min="1" required></div>
             </div>
 
-            <div class="form-group ">
-                <div><div class="req_field">*</div><label> Times per Day : </label></div>
-                <div>
+            <div class="form-group row">
+                <div class="col-sm-4"><span style="color: red">*</span><label> Times per Day : </label></div>
+                <div class="col-sm-5">
                     <select class="form-control" id="medi_time">
                         <option selected>--Select times--</option>
                         <option>Once a day</option>
@@ -93,19 +93,19 @@
                 </div>
             </div>
 
-            <div class="form-group ">
-                <div><div class="req_field">*</div><label> Usage : </label></div>
-                <div>   
+            <div class="form-group row">
+                <div class="col-sm-4"><span style="color: red">*</span><label> Usage : </label></div>
+                <div class="col-sm-5">   
                     <input type="radio" name="medi_use" id="medi_use" value="before meal" required>Before meal
                     &nbsp;<input type="radio" name="medi_use" id="medi_use" value="after meal" required checked="checked">After meal
                 </div>
             </div>
 
              <div class="form-group ">
-                <button onclick="getMedication()" class="btn btn-default">Add Medicine</button>
-                <button type="reset" class="btn btn-default">Reset</button>
+                <button type="button" onclick="getMedication()" class="btn btn-default">Add Medicine</button>
+                <button type="button" onclick="clearMedication()" class="btn btn-default">Reset</button>
             </div>
-        </form>
+        
 <!-- end:add medicine into database -->
 
 <!-- begin: view, edit, delete medicine in table -->
@@ -124,7 +124,14 @@
                         </div>
         </div>
 
-        <table class="table table-striped table-hover table-users">
+        <div class="form-group row">
+            <div class="col-sm-4"><span style="color: red">*</span><label> Medication : </label></div>
+            <div class="col-sm-8">
+                <textarea rows="5" class="form-control" id="medication" name="medication" noresize="noresize"></textarea>
+            </div>
+        </div>
+
+        <!-- <table class="table table-striped table-hover table-users">
                 <thead>
                     <tr>
                         
@@ -168,7 +175,7 @@
                 
                    </tbody>
 
-            </table>
+            </table> -->
 
 <!-- end: view, edit, delete medicine in table -->
         <div class="form-group">
@@ -184,7 +191,7 @@
         </div>
 <!-- end: find the location -->
     </div>
-
+</form>
 
 
 <!--begin: js for print prescription -->
@@ -207,14 +214,27 @@
 
     var getMedication = function(){
         var med_id = document.getElementById('medicine_name').value;
-        var med_name = document.getElementById('medicine_name').selected;
+        var e = document.getElementById("medicine_name");
+        var med_name = e.options[e.selectedIndex].text;
         var med_dose = document.getElementById('medi_dose').value;
         var tablet_amount = document.getElementById('medi_tablet').value;
-        var med_shed = document.getElementById('medi_time').selected;
+        // var med_shed = document.getElementById('medi_time').selectedIndex.value;
+
+        var e = document.getElementById("medi_time");
+        var med_shed = e.options[e.selectedIndex].value;
+
         var med_usage = document.getElementById('medi_use').value;
 
         med1 = new Medication(med_id, med_name, med_dose, tablet_amount, med_shed, med_usage);
         console.log(med1);
+
+        var info = med1.medId+"; "+med1.medName+"; "+med1.medDose+"; "+med1.tabAmmount+"; "+med1.medShed+"; "+med1.medUsage;
+        console.log(info);
+        document.getElementById('medication').value += info + '\n';
+    }
+
+    var clearMedication = function(){
+        document.getElementById('medication').value = " ";
     }
 </script>
 
