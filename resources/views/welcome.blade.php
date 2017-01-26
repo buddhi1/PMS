@@ -36,7 +36,7 @@
                     <a id="menu-toggle" href="#" class="glyphicon glyphicon-align-justify btn-menu toggle">
                         <i class="fa fa-bars"></i>
                     </a>
-            <a href="#">Prescription Mangement System</a>
+            <a href="#">Look Up Pharmacy</a>
                 </div>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
@@ -114,7 +114,7 @@
                     <div class="panel cus-panel">
                       <div class="panel-heading">
                         <h4 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse5"><img src="icon/customer.png"  style="margin-right: 10px">Prescription</a>
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse5"><img src="icon/prescription.png"  style="margin-right: 10px">Prescription</a>
                         </h4>
                       </div>
                       <div id="collapse5" class="panel-collapse collapse">

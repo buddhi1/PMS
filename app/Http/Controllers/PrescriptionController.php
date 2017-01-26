@@ -68,8 +68,24 @@ class PrescriptionController extends Controller
 
                 $prescription->save();
 
-                return redirect('doctor/prescription/create')
-                        ->with('message', 'Prescription Saved Successfully');
+                // $medications  = explode('#', $prescription->medication);
+                // foreach ($medications as $medi ) {
+                //     $med_id = explode(";", $medi)[0];
+                // }
+
+                // $pharmacy = DB::table('pharmacy_stores')
+                //                 ->join('phramacies', 'pha_id', '=', 'pharmacy_stores.id')
+                //                 ->where('phramacies.city', '=', '')
+                //                 // ->where('qty', '>', '')
+                //                 ->get();
+
+                // $pharmacy = DB::table('pharmacies')
+                //                 ->select('name', 'location')
+                //                 ->where('city', )
+                //                 ->get();
+
+                return view('prescription.location')
+                        ->with('prescription', $prescription);
             }
             return redirect('doctor/prescription/create')
                     ->with('message', 'Patient does not exists. Please try again');
