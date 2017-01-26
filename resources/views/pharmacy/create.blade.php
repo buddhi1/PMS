@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h3>Add a New Pharmacy</h3>
+<h3>Add Pharmacy</h3>
 @if(Session::has('message'))
     <div class="alert alert-danger"> {{ Session::get('message') }} </div>
 @endif
@@ -16,30 +16,30 @@
 </div>
 @endif
 <div class="container">
-    <h2>Add Pharmacy</h2>
+  
 
     <form method="POST" action="{{ url('admin/pharmacy') }}" >
     {{ csrf_field() }}
         <div class="form-group">
-            <div><label> Register Number : </label></div>
+            <div><label><span style="color: red">* </span> Register Number : </label></div>
             <div><input type="text" class="form-control" name="register_number" placeholder="Enter Pharmacy Registered Number" required></div>
         </div>
         <div class="form-group">
-            <div><label>Pharmacy Name : </label></div>
+            <div><label><span style="color: red">* </span>Pharmacy Name : </label></div>
             <div><input type="text" class="form-control" name="name" placeholder="Enter Pharmacy Name" required></div>
         </div>
         <div class="form-group">
-            <div><label>Pharmacy Address : </label></div>
+            <div><label><span style="color: red">* </span>Pharmacy Address : </label></div>
             <div><input type="text" class="form-control" name="address" placeholder="Enter Pharmacy Address" required></div>
         </div>
         <div class="form-group ">
-            <div><div class="req_field">*</div><label> City : </label></div>
+            <div><label><span style="color: red">* </span> City : </label></div>
             <div><input type="text" class="form-control" name="city" placeholder="Enter Pharmacy located city" required></div>
         </div>
         <div id="map" style="height: 400px;width: 70%;"></div>
         <input type="hidden" name="location" id="location">
         <div class="form-group">
-            <div><label>Minimum Quantity: </label></div>
+            <div><label><span style="color: red">* </span>Minimum Quantity: </label></div>
             <div><input type="text" class="form-control" name="minimum_qty" placeholder="Enter Minimum Quantity of Medicine" required></div>
         </div>
         <div class="form-group">
@@ -54,6 +54,7 @@
         <button type="reset" class="btn btn-default">Reset</button>
     </form>
 </div>
+@stop
  <script type="text/javascript">
     function initMap() {
       var map = new google.maps.Map(document.getElementById('map'), {

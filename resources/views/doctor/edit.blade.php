@@ -17,38 +17,38 @@
      {{ Form::open(['method' => 'PUT', 'url' => ['admin/doctor', $doctor->id]]) }}  
     {{ csrf_field() }}
         <div>
-            <div>
+            <div class="form-group">
                 <label>Doctor Name</label>
-                <input type="text" required="required"  name="name" value=" {{ $doctor->name }} " />
+                <input type="text" class="form-control" required="required"  name="name" value=" {{ $doctor->name }} " />
             </div>
-            <div>
+            <div class="form-group">
                 <label>Registration Number</label>
-                <input type="text" disabled="disabled" required="required" name="reg_no" value=" {{ $doctor->reg_no }} "/>
+                <input type="text" class="form-control" disabled="disabled" required="required" name="reg_no" value=" {{ $doctor->reg_no }} "/>
             </div>
-            <div>
+            <div class="form-group">
                 <label>Address</label>
-                <input type="text" required="required" name="address" value=" {{ $doctor->address }} "/>
+                <input type="text" class="form-control" required="required" name="address" value=" {{ $doctor->address }} "/>
             </div>
-            <div>
+            <div class="form-group">
                 <label>City</label> 
-                <input type="text" required="required" name="city" value=" {{ $doctor->city }} "/>
+                <input type="text" class="form-control" required="required" name="city" value=" {{ $doctor->city }} "/>
             </div>            
-            <div>
+            <div class="form-group">
                 <label>Location</label>
                 <div id="map" style="height: 400px;width: 70%;"></div>
             </div>
-            <div>
-                <label>Account Status</label>
+            <div class="form-group">
+                <label>Account Status</label><br>
                 @if($doctor->status == 1)
-                    <label>Active</label><input type="radio" name="status" checked="checked" value="1" /><br/>
-                    <label>Pending</label><input type="radio" name="status" value="0" />
+                    <input type="radio" name="status" checked="checked" value="1" /><label>Active</label>
+                    <input type="radio" name="status" value="0" /><label>Pending</label>
                 @else
-                     <label>Active</label><input type="radio" name="status" value="1" /><br/>
-                    <label>Pending</label><input type="radio" name="status" checked="checked" value="0" />
+                     <input type="radio" name="status" value="1" /><label>Active</label>
+                    <input type="radio" name="status" checked="checked" value="0" /><label>Pending</label>
                 @endif
             </div>
             <div>
-                <button type="submit">Update</button>
+                <button type="submit" class="btn btn-default">Update</button>
             </div>
     </form>
     <script type="text/javascript">

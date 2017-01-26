@@ -74,9 +74,9 @@
                     	<td><label>{{ $pharmacy->closing_time}}</label></td>
                     	<td><label>
                     		@if($pharmacy->status==1)
-                    			Active
+                    			<span  class="label label-success">Active</span>
                     		@else
-                    			Inactive
+                    			<span  class="label label-danger">Inactive</span>
                     		@endif
                     	</label></td>
                     	  					

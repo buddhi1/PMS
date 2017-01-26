@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h3>Add a New Patient</h3>
+<h3>Add Patient</h3>
 @if(Session::has('message'))
     <div class="alert alert-danger"> {{ Session::get('message') }} </div>
 @endif
@@ -17,11 +17,11 @@
     <form method="POST" action="{{ url('admin/patient') }}" >
     {{ csrf_field() }}
         <div class="form-group">
-            <div><div class="req_field">*</div> <label >Patient Name :</label></div>
+            <div><label ><span style="color: red">* </span>Patient Name :</label></div>
               <input type="text" class="form-control" name="name" placeholder="Input Patient Name" required>
         </div>
         <div class="form-group">
-            <div><div class="req_field">*</div> <label >Enter NIC_No :</label></div>
+            <div><label ><span style="color: red">* </span>Enter NIC_No :</label></div>
             <input type="text" class="form-control" name="nic" placeholder="Input Patient NIC_No" required>
         </div>
         <div class="form-group">
@@ -33,7 +33,7 @@
             <input type="text" class="form-control" name="city" placeholder="Input Patient City">
         </div>
         <div class="form-group">
-            <div><div class="req_field">*</div><label>Patient Location :</label></div>
+            <div><label><span style="color: red">* </span>Patient Location :</label></div>
             <input type="text" class="form-control" name="location" placeholder="Input Patient Location" required>
         </div>
         <div class="form-group">
