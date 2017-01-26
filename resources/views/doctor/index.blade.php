@@ -19,7 +19,7 @@
                         </div>
    </div>
 
-    <table class="table table-striped table-hover table-users"  border="2">
+    <table class="table table-striped table-hover table-users"  border="0">
         <tr>
             <th>Id</th>
             <th>Name</th>

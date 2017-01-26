@@ -29,13 +29,13 @@
             <input type="text" class="form-control" name="address" value=" {{ $patient->address }} " placeholder="Input Patient Adress">
         </div>
         <div class="form-group">
-            <label >Account Status :</label>
+            <label >Account Status :</label><br>
             @if($patient->status == 1)
-                <label>Active</label><input type="radio" name="status" checked="checked" value="1" /><br/>
-                <label>Pending</label><input type="radio" name="status" value="0" />
+                <input type="radio" name="status" checked="checked" value="1" /><label>Active</label><br/>
+                <input type="radio" name="status" value="0" /><label>Pending</label>
             @else
-                 <label>Active</label><input type="radio" name="status" value="1" /><br/>
-                <label>Pending</label><input type="radio" name="status" checked="checked" value="0" />
+                <input type="radio" name="status" value="1" /> <label>Active</label><br/>
+                <input type="radio" name="status" checked="checked" value="0" /><label>Pending</label>
             @endif
         </div>
         <div class="form-group">

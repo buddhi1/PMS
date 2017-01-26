@@ -30,7 +30,7 @@
                             <button data-dismiss="modal" class="btn red" id="btnYes">Confirm</button>
                         </div>
    </div>
-   <table class="table table-striped table-hover table-users" border="2">
+   <table class="table table-striped table-hover table-users" border="0">
     			<thead>
     				<tr>
     					
@@ -62,9 +62,9 @@
     					<td><label>{{ $pharmacy->minimum_qty}}</label></td>
                       	<td><label>
                       		@if($pharmacy->availability==1)
-                      			Available
+                      			<span  class="label label-success">Available</span>
                       		@else
-                      			Not available
+                      			<span  class="label label-danger">Not available</span>
                       		@endif
                       	</label></td>
                       	

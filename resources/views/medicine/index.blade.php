@@ -28,7 +28,7 @@
                             <button data-dismiss="modal" class="btn red" id="btnYes">Confirm</button>
                         </div>
    </div>
-    <table class="table table-striped table-hover table-users" border="2">
+    <table class="table table-striped table-hover table-users" border="0">
         <thead>    
             <tr>
                 <th>Id</th>
@@ -48,9 +48,9 @@
             <td>
                 {{ Form::open(['method' => 'GET', 'url' => ['admin/medicine', $medicine->id, 'edit']]) }}
                     @if($medicine->approval == 1)
-                        <label>Approved</label>
+                        <label><span  class="label label-success">Approved</label></span>
                     @else
-                        <label>Not approved</label>
+                        <label><span  class="label label-danger">Not approved</label></span>
                     @endif
                 {{ Form::close() }}  
             </td>

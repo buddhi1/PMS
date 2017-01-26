@@ -38,6 +38,7 @@
         </div>
         <div id="map" style="height: 400px;width: 70%;"></div>
         <input type="hidden" name="location" id="location">
+        </br>
         <div class="form-group">
             <div><label><span style="color: red">* </span>Minimum Quantity: </label></div>
             <div><input type="text" class="form-control" name="minimum_qty" placeholder="Enter Minimum Quantity of Medicine" required></div>

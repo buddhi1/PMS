@@ -5,7 +5,7 @@
 @if(Session::has('message'))
     <div class="alert alert-danger"> {{ Session::get('message') }} </div>
 @endif
-<h3>Patients</h3>
+<h3>Patient Details</h3>
     
     <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-header">
@@ -43,9 +43,9 @@
                         <td> {{ $patient->name }} </td>
                         <td> 
                             @if($patient->status == 1)
-                                <label>Active</label>
+                                <label><span  class="label label-success">Active</span></label>
                             @else
-                                <label>Pending</label>
+                                <label><span  class="label label-danger">Pending</span></label>
                             @endif
                         </td>
                         <td> {{ $patient->address }} </td>
@@ -54,12 +54,12 @@
 
                         <td>
                             {{ Form::open(['method' => 'GET', 'url' => ['admin/patient', $patient->id, 'edit']]) }}
-                                {{ Form::submit('Edit', ['class' => '']) }}
+                                {{ Form::submit('Edit', ['class' => 'btn btn-warning']) }}
                             {{ Form::close() }}   
                         </td>
                         <td>
                             {{ Form::open(['method' => 'DELETE', 'url' => ['admin/patient', $patient->id]]) }}
-                                {{ Form::submit('Delete', ['class' => '']) }}
+                                {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
                             {{ Form::close() }}            
                         </td>
                     </tr>

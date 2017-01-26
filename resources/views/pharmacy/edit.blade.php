@@ -59,20 +59,20 @@
         <div class="form-group">
             <div><label>Opening Time: </label></div>
             <div>
-            <input type="text" class="form-control timepicker" name="opening_time" id="ph_Open" value="{{ $pharmacy->opening_time}}" required></div>
+            <input type="time" class="form-control timepicker" name="opening_time" id="ph_Open" value="{{ $pharmacy->opening_time}}" required></div>
 
             <div><label>Closing Time: </label></div>
-            <div><input type="text" class="form-control" name="closing_time" id="ph_Close" value="{{ $pharmacy->closing_time}}" required></div>
+            <div><input type="time" class="form-control" name="closing_time" id="ph_Close" value="{{ $pharmacy->closing_time}}" required></div>
         </div>
         <div class="form-group">
         	<div><div class="req_field"></div><label> Status : </label></div>
         	<div>
         		@if( $pharmacy->status == 1)
-        			<label>Active</label><input type="radio" name="status" checked="checked" value="1" /><br/>
-                    <label>Inactive</label><input type="radio" name="status" value="0" />
+        			<input type="radio" name="status" checked="checked" value="1" /><label>Active</label><br/>
+              <input type="radio" name="status" value="0" /><label>Inactive</label>
         		@else
-        			<label>Active</label><input type="radio" name="status"  value="1" /><br/>
-                    <label>Inactive</label><input type="radio" name="status" checked="checked" value="0" />
+        			<input type="radio" name="status"  value="1" /><label>Active</label><br/>
+              <input type="radio" name="status" checked="checked" value="0" /><label>Inactive</label>
                 @endif
         	</div>
         </div>

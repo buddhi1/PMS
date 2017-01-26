@@ -21,11 +21,11 @@
               <input type="text" class="form-control" name="name" placeholder="Input Patient Name" required>
         </div>
         <div class="form-group">
-            <div><label ><span style="color: red">* </span>Enter NIC_No :</label></div>
+            <div><label ><span style="color: red">* </span>Patient NIC_No :</label></div>
             <input type="text" class="form-control" name="nic" placeholder="Input Patient NIC_No" required>
         </div>
         <div class="form-group">
-            <label >Patient Adress :</label>
+            <label >Patient Address :</label>
             <input type="text" class="form-control" name="address" placeholder="Input Patient Adress">
         </div>
         <div class="form-group">
@@ -37,11 +37,11 @@
             <input type="text" class="form-control" name="location" placeholder="Input Patient Location" required>
         </div>
         <div class="form-group">
-            <label>Patient Email Adress :</label>
+            <label>Patient Email Address :</label>
             <input type="text" class="form-control" name="pa_email" placeholder="Input Patient Email">
         </div>
         <div class="form-group">
-            <label>Patient Tel_No :</label>
+            <label>Patient Telephone No :</label>
             <input type="text" class="form-control" name="phone" placeholder="Input Patient Telephone No">
         </div>
        <button type="submit" class="btn btn-default">Submit</button>
