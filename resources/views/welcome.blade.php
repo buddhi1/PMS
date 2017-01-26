@@ -37,7 +37,7 @@
                     <a id="menu-toggle" href="#" class="glyphicon glyphicon-align-justify btn-menu toggle">
                         <i class="fa fa-bars"></i>
                     </a>
-            <a href="#">Look Up Pharmacy</a>
+            <a href="#">Prescription Mangement System</a>
                 </div>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
@@ -59,7 +59,8 @@
             
             <ul class="sidebar-nav nav">
                 <li class="sidebar-brand">
-                    <a href="example.html" target="iframe_ex" style="padding-left: 15px;"><img src="icon/home.png" class="img_medi" style="margin-right:6px;    margin-bottom: 12px;">Home</a>
+                    <!-- <a href="#" target="iframe_ex" style="padding-left: 15px;"><img src="icon/home.png" class="img_medi" style="margin-right:6px;    margin-bottom: 12px;">Home</a> -->
+                    <a href="#"  style="padding-left: 15px;"><img src="icon/home.png" class="img_medi" style="margin-right:6px;    margin-bottom: 12px;">Home</a>
                 </li>
                 <li>
                     <div class="panel-group" id="accordion">
@@ -109,6 +110,17 @@
                       <div id="collapse4" class="panel-collapse collapse">
                         <a href="{{ url(('/')) }}/admin/patient/create" target="iframe_ex"> <div class="panel-body">Add</div> </a>
                         <a href="{{ url(('/')) }}/admin/patient" target="iframe_ex"> <div class="panel-body">view</div> </a>
+                      </div>
+                    </div>
+                    <div class="panel cus-panel">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse5"><img src="icon/customer.png"  style="margin-right: 10px">Prescription</a>
+                        </h4>
+                      </div>
+                      <div id="collapse5" class="panel-collapse collapse">
+                        <a href="{{ url(('/')) }}/doctor/prescription/create" target="iframe_ex"> <div class="panel-body">Add</div> </a>
+                        <a href="{{ url(('/')) }}/doctor/prescription" target="iframe_ex"> <div class="panel-body">view</div> </a>
                       </div>
                     </div>
                   </div>
