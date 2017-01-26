@@ -44,7 +44,7 @@
 
         <form method="POST" action="{{ url('doctor/prescription') }}" >
         {{ csrf_field() }}
-            <div class="form-group ">
+            <div class="form-group">
                 <div><div class="req_field">*</div><label> Patient Name : </label></div>
                 <div>
                     <select class="form-control" id="medi_name" name="patient_id">
