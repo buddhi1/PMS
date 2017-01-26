@@ -6,7 +6,7 @@
     <div class="alert alert-danger"> {{ Session::get('message') }} </div>
 @endif
 <h3>Prescriptions</h3>
-    <table  border="2">
+    <table class="table table-striped table-hover table-users" border="2">
         <tr>
             <th>Id</th>
             <th>patient Details</th>

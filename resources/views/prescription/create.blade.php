@@ -40,7 +40,7 @@
 
     <!-- begin:add medicine into database -->
     <div class="container col-xs-8">
-        <h2>Prescription</h2>
+        <!-- <h2>Prescription</h2> -->
 
         <form method="POST" action="{{ url('doctor/prescription') }}" >
         {{ csrf_field() }}
@@ -96,8 +96,8 @@
             <div class="form-group row">
                 <div class="col-sm-4"><span style="color: red">*</span><label> Usage : </label></div>
                 <div class="col-sm-5">   
-                    <input type="radio" name="medi_use" id="medi_use" value="before meal" required>Before meal
-                    &nbsp;<input type="radio" name="medi_use" id="medi_use" value="after meal" required checked="checked">After meal
+                    <input type="radio" name="medi_use" id="medi_use1" value="before meal" required>Before meal
+                    &nbsp;<input type="radio" name="medi_use" id="medi_use2" value="after meal" required checked="checked">After meal
                 </div>
             </div>
 
@@ -178,7 +178,7 @@
             </table> -->
 
 <!-- end: view, edit, delete medicine in table -->
-        <div class="form-group">
+        <div id="printdiv" class="form-group">
             <label>Comments</label>
             <textarea name="comments" class="form-control"></textarea>
         </div>
@@ -191,13 +191,14 @@
         </div>
 <!-- end: find the location -->
     </div>
+    <br>
 </form>
 
 
 <!--begin: js for print prescription -->
 <script type="text/javascript">
     function myFunction() {
-        window.print();
+        div('printdiv').print();
     }
 
     // medication class definition
@@ -223,12 +224,18 @@
         var e = document.getElementById("medi_time");
         var med_shed = e.options[e.selectedIndex].value;
 
-        var med_usage = document.getElementById('medi_use').value;
-
+        if (document.getElementById('medi_use1').checked) {
+            var med_usage = document.getElementById("medi_use1").value;
+        }
+        else
+        {
+            var med_usage = document.getElementById("medi_use2").value;
+        }
+        
         med1 = new Medication(med_id, med_name, med_dose, tablet_amount, med_shed, med_usage);
         console.log(med1);
 
-        var info = med1.medId+"; "+med1.medName+"; "+med1.medDose+"; "+med1.tabAmmount+"; "+med1.medShed+"; "+med1.medUsage;
+        var info = "#"+med1.medId+"; "+med1.medName+"; "+med1.medDose+"; "+med1.tabAmmount+"; "+med1.medShed+"; "+med1.medUsage;
         console.log(info);
         document.getElementById('medication').value += info + '\n';
     }
